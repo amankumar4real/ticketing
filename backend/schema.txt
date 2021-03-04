@@ -1,0 +1,7 @@
+user table ->
+  user_id = primary key unique
+  firstname = string
+  lastname = string
+  email = string unique
+  password = string
+  type = string
