@@ -28,7 +28,7 @@ complaint table ->
   status = bool
   registeredAdmin = foreign key int
 
-complaint location ->
+complaintLocation location ->
   id = primary key unique
   complaintID = foreign key int
   lng = float
