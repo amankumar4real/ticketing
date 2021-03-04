@@ -11,14 +11,18 @@ def register(details):
     lastname = details["lastname"]
     email = details["email"]
     password = details["password"]
+    profilePicture = details["profilePicture"]
+    accountType = details["accountType"]
 
     status = UserModel.query.filter(UserModel.email == email).first()
 
     if status is None:
-        user_type = "user"
 
         user = UserModel(firstname=firstname, lastname=lastname,
-                         email=email, password=password, type=user_type)
+                         email=email, password=password,
+                         profilePicture=profilePicture,
+                         accountType=accountType,
+                         dataOfRegister=datetime.datetime.utcnow())
 
         db.session.add(user)
         db.session.commit()
@@ -49,7 +53,7 @@ def login(details):
         if data.password == password:
             obj = {
                 "email": data.email,
-                "type": data.type,
+                "accountType": data.accountType,
                 "created_at": str(datetime.datetime.utcnow()),
                 "expire_at": str(datetime.datetime.utcnow()
                                  + datetime.timedelta(days=1))

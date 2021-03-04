@@ -1,7 +1,35 @@
 user table ->
-  user_id = primary key unique
+  id = primary key unique int
   firstname = string
   lastname = string
   email = string unique
   password = string
-  type = string
+  profilePicture = string
+  dataOfRegister = Date
+  accountType = string
+
+admin table ->
+  id = primary key unique int
+  firstname = string
+  lastname = string
+  email = string unique
+  password = string
+  designation = string
+  lng = float
+  lat = float
+  profilePicture = string
+  dataOfRegister = Date
+
+complaint table ->
+  id = primary key unique
+  userID = foreign key int
+  subject = string
+  complaint = string
+  status = bool
+  registeredAdmin = foreign key int
+
+complaint location ->
+  id = primary key unique
+  complaintID = foreign key int
+  lng = float
+  lat = float

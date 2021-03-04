@@ -8,4 +8,6 @@ class UserModel(db.Model):
     lastname = db.Column(db.String(60))
     email = db.Column(db.String(60),unique = True)
     password = db.Column(db.String(60))
-    type = db.Column(db.String(60))
+    profilePicture = db.Column(db.String(300))
+    dataOfRegister = db.Column(db.Date)
+    accountType = db.Column(db.String(60))
